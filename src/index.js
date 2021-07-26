@@ -4,21 +4,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const toDoListBox = document.querySelector('#list ul')
   const submitButton = document.querySelectorAll('input')[1]
   const formArea = document.getElementById('create-task-form')
-  const li = document.createElement('li')
+  // const li = document.createElement('li')
   
+
+
 formArea.addEventListener('submit', function(e){
   e.preventDefault()
-  inputField(createListItem)
-})
-
-
-  function createListItem(text){
   const li = document.createElement('li')
   toDoListBox.append(li)
-  li.innerText = `${text}`
+  li.innerText = inputField.value
+  inputField.value = ""
+  li.addEventListener('click', function(){
+    li.style.textDecoration = 'line-through'
+  })
 
-}
-
+  
+  
+})
+  
 
   
 });
